@@ -5,3 +5,31 @@
   |============================
 */
 @import url('./reset.css');
+
+.gallery{
+  max-width: 1128px;
+  padding-top: 24px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+ul{
+  list-style-type: none;
+}
+
+.gallery-item{
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+}
+      
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-item img:hover{
+  color: 4E75FF;
+  cursor:url('/src/img/Vector.svg'), auto;
+}
