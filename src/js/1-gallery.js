@@ -70,15 +70,14 @@ const makeGalery = ({ original, preview, description }) => {
 <a class="gallery-link" href=${original}>
   <img
     class="gallery-image"
-    src=${preview}
-    data-source=${original}
+    src=${preview}   
     alt=${description}
   />
 </a>
 </li>`;
 };
 
-//створила карточки
+// створила карточки
 const cards = images
   .map(image => {
     return makeGalery(image);
@@ -88,33 +87,45 @@ const cards = images
 // додала карточки на сайт
 gallery.innerHTML = cards;
 
-gallery.addEventListener('click', onImageClick);
-let modal = null;
+// gallery.addEventListener('click', onImageClick);
+// let modal = null;
 
-function onImageClick(event) {
-  event.preventDefault();
-  if (event.target.nodeName !== 'IMG') return;
-  // console.log(event.target.getAttribute("data-source"));
-  modal = basicLightbox.create(
-    `<img width="1112" height="640" src=${event.target.getAttribute(
-      'data-source'
-    )}>`,
-    {
-      onShow: () => {
-        document.addEventListener('keydown', onEscapeClick);
-        document.body.style.overflow = 'hidden';
-      },
-      onClose: () => {
-        document.removeEventListener('keydown', onEscapeClick);
-        document.body.style.overflow = 'visible';
-      },
-    }
-  );
-  modal.show();
-}
+// function onImageClick(event) {
+//   event.preventDefault();
+//   if (event.target.nodeName !== 'IMG') return;
+//   // console.log(event.target.getAttribute("data-source"));
+//   modal = basicLightbox.create(
+//     `<img width="1112" height="640" src=${event.target.getAttribute(
+//       'data-source'
+//     )}>`,
+//     {
+//       onShow: () => {
+//         document.addEventListener('keydown', onEscapeClick);
+//         document.body.style.overflow = 'hidden';
+//       },
+//       onClose: () => {
+//         document.removeEventListener('keydown', onEscapeClick);
+//         document.body.style.overflow = 'visible';
+//       },
+//     }
+//   );
+//   modal.show();
+// }
 
-function onEscapeClick(event) {
-  if (event.code !== 'Escape') return;
+// function onEscapeClick(event) {
+//   if (event.code !== 'Escape') return;
 
-  modal.close();
-}
+//   modal.close();
+// }
+
+// Описаний в документації
+import SimpleLightbox from 'simplelightbox';
+// Додатковий імпорт стилів
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
+console.log(SimpleLightbox);
