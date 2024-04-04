@@ -97,4 +97,8 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-console.log(SimpleLightbox);
+const element = document.querySelectorAll('button');
+console.log(element);
+// Перебираем полученные элементы и изменяем их фоновый цвет
+
+element.style.backgroundColor = 'red'; // Пример изменения фона на синий цвет
