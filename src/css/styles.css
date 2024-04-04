@@ -61,7 +61,3 @@ ul{
   height: 100%;
   object-fit: cover;
 }
-.gallery-item img:hover{
-  color: 4E75FF;
-  cursor:url('/src/img/Vector.svg'), auto;
-}

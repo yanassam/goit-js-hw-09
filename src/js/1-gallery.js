@@ -87,37 +87,6 @@ const cards = images
 // додала карточки на сайт
 gallery.innerHTML = cards;
 
-// gallery.addEventListener('click', onImageClick);
-// let modal = null;
-
-// function onImageClick(event) {
-//   event.preventDefault();
-//   if (event.target.nodeName !== 'IMG') return;
-//   // console.log(event.target.getAttribute("data-source"));
-//   modal = basicLightbox.create(
-//     `<img width="1112" height="640" src=${event.target.getAttribute(
-//       'data-source'
-//     )}>`,
-//     {
-//       onShow: () => {
-//         document.addEventListener('keydown', onEscapeClick);
-//         document.body.style.overflow = 'hidden';
-//       },
-//       onClose: () => {
-//         document.removeEventListener('keydown', onEscapeClick);
-//         document.body.style.overflow = 'visible';
-//       },
-//     }
-//   );
-//   modal.show();
-// }
-
-// function onEscapeClick(event) {
-//   if (event.code !== 'Escape') return;
-
-//   modal.close();
-// }
-
 // Описаний в документації
 import SimpleLightbox from 'simplelightbox';
 // Додатковий імпорт стилів
