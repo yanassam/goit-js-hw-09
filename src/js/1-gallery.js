@@ -1,3 +1,8 @@
+// Описаний в документації
+import SimpleLightbox from 'simplelightbox';
+// Додатковий імпорт стилів
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -65,40 +70,33 @@ const images = [
 ];
 const gallery = document.querySelector('.gallery');
 
-const makeGalery = ({ original, preview, description }) => {
-  return `<li class="gallery-item">
-<a class="gallery-link" href=${original}>
+const makeGallery = images => {
+  return images
+    .map(
+      imag => `<li class="gallery-item">
+<a class="gallery-link" href=${imag.original}>
   <img
     class="gallery-image"
-    src=${preview}   
-    alt=${description}
+    src=${imag.preview}   
+    alt=${imag.description}
   />
 </a>
-</li>`;
+</li>`
+    )
+    .join('');
 };
 
-// створила карточки
-const cards = images
-  .map(image => {
-    return makeGalery(image);
-  })
-  .join('');
+// // створила карточки
+// const cards = images
+//   .map(image => {
+//     return makeGallery(image);
+//   })
+//   .join('');
 
 // додала карточки на сайт
-gallery.innerHTML = cards;
-
-// Описаний в документації
-import SimpleLightbox from 'simplelightbox';
-// Додатковий імпорт стилів
-import 'simplelightbox/dist/simple-lightbox.min.css';
+gallery.innerHTML = makeGallery(images);
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
-
-const element = document.querySelectorAll('button');
-console.log(element);
-// Перебираем полученные элементы и изменяем их фоновый цвет
-
-element.style.backgroundColor = 'red'; // Пример изменения фона на синий цвет

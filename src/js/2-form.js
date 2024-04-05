@@ -38,10 +38,12 @@ function onSubmit(event) {
   event.preventDefault();
   const { email, message } = event.currentTarget.elements;
 
-  if (!email.value || !message.value) return alert('Enter user data');
-  localStorage.removeItem('feedback-form-state');
+  if (!email.value.trim() || !message.value.trim())
+    return alert('Enter user data');
 
-  console.log('User email:', email.value);
-  console.log('User message:', message.value);
+  // console.log('User email:', email.value);
+  // console.log('User message:', message.value);
+  console.log({ email: email.value.trim(), message: message.value.trim() });
+  localStorage.removeItem('feedback-form-state');
   event.currentTarget.reset();
 }
